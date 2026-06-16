@@ -17,3 +17,12 @@ class Block:
             self.hash = h.hexdigest()
             return True
         return False
+    
+    def show(self):
+        print(f"""
+---------------------------------
+Data: {self.info}
+Key: {self.key}
+Hash: {self.hash}
+---------------------------------
+              """)
