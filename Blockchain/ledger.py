@@ -1,4 +1,4 @@
-from Blockchain.block import Block
+import block
 
 class Ledger:
     def __init__(self):
@@ -7,12 +7,13 @@ class Ledger:
 
     def add_block(self, infomation: str):
         if self.length == 0:
-            self.blocks.append(Block(infomation, None))
+            self.blocks.append(block.Block(infomation, None))
         else:
-            self.blocks.append(Block(infomation, self.blocks[-1].hash))
+            self.blocks.append(block.Block(infomation, self.blocks[-1].hash))
     
     def solve(self):
         pass
 
     def show(self):
-        pass
+        for selected_block in self.blocks:
+            selected_block.show()
