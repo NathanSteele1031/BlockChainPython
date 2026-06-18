@@ -21,7 +21,7 @@ class ConnectionManager:
         while peer_data_json[-3:] != "~~~": # This will be the ending string of the transmisson
             peer_data_json += self.service_node_connection.recv(1024)
         peer_data_json = peer_data_json[:-3] # Strips the ~~~ tag
-        peer_data = json.load(peer_data_json)
+        peer_data = json.loads(peer_data_json)
         """
         How the peer data should be structured
         {
