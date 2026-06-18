@@ -28,5 +28,9 @@ class ConnectionManager:
         """
         # Creates active connections of all ip addresses and add them to the list
         for ip_address in peer_data["peers"]:
-            new_connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            new_connection.connect((ip_address, 6001))
+            self.make_connection(ip_address)
+    
+    def make_connection(self, ip_address:str):
+        new_connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        new_connection.connect((ip_address, 6001))
+        self.peer_connections.append(new_connection)
