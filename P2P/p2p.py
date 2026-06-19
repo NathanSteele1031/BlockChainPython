@@ -2,6 +2,12 @@ import socket, json
 
 class ConnectionManager:
     def __init__(self):
+        """
+        Manages all connections for p2p and establishes them.\n
+        INSTANCE VARIABLES\n
+        peer_connections: List - This is a list of all socket connections established\n
+        service_node_connection: socket - The connection to the service node.
+        """
         # The first connection is the service node always
         self.peer_connections = []
         self.service_node_connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
