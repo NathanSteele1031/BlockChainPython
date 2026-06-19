@@ -23,6 +23,8 @@ class Ledger:
         """
         Takes the last block that has been added and attempts to solve the hash for it.
         """
+        if self.blocks[-1].key != None:
+            return
         solve_key = 0
         while not self.blocks[-1].test_key(solve_key):
             solve_key += 1
