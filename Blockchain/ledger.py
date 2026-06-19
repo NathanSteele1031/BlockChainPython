@@ -3,7 +3,10 @@ import block
 class Ledger:
     def __init__(self):
         """
-        A class that stores Block instances and allows adding, solving, and showing blocks.
+        A class that stores Block instances and allows adding, solving, and showing blocks.\n
+        INSTANCE VARIABLES\n
+        blocks: List - Stores all Block instances that were added\n
+        length: Int - Keeps track on how many blocks are in the blocks list.\n
         """
         self.blocks = []
         self.length = 0
