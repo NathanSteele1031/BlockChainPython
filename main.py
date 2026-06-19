@@ -1,10 +1,13 @@
 from Blockchain.block import Block
 from Blockchain.ledger import Ledger
+from P2P.p2p import ConnectionManager
 
 def main():
     print("Loading ledger")
     ledger = Ledger()
+    connection_manager = ConnectionManager()
     # Load the whole or part of the ledger here
+
     print("1.Mine on the blockchain\n2.Create a block")
     user_input = input(": ")
     if user_input == "1":
