@@ -56,3 +56,10 @@ class ConnectionManager:
         This should be called with it's own thread to listen for new connections and establish them.
         """
         pass
+
+    def get_connections_json(self):
+        data = {
+            "peers" : self.peer_connections,
+            "connections" : len(self.peer_connections)
+        }
+        return json.dumps(data)
