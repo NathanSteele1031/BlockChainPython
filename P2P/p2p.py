@@ -8,7 +8,6 @@ class ConnectionManager:
         peer_connections: List - This is a list of all socket connections established\n
         service_node_connection: socket - The connection to the service node.
         """
-        # The first connection is the service node always
         self.peer_connections = []
         self.service_node_connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         
@@ -19,7 +18,6 @@ class ConnectionManager:
         service_node = "127.0.0.1"
         service_port = "6000"
         self.service_node_connection.connect((service_node, service_port))
-        self.peer_connections.append(self.service_node_connection)
         self.service_node_connection.sendall("GET peer".encode())
 
         # Will get json structure of all service nodes.
@@ -46,3 +44,15 @@ class ConnectionManager:
         new_connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         new_connection.connect((ip_address, 6001))
         self.peer_connections.append(new_connection)
+    
+    def manage_connections(self):
+        """
+        This should be called with it's own thread to send data when it gets requests or hears new information.
+        """
+        pass
+
+    def manage_incoming(self):
+        """
+        This should be called with it's own thread to listen for new connections and establish them.
+        """
+        pass
