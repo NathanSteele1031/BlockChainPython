@@ -20,7 +20,7 @@ class ConnectionManager:
         service_port = "6000"
         self.service_node_connection.connect((service_node, service_port))
         self.peer_connections.append(self.service_node_connection)
-        self.service_node_connection.sendall("GET peer")
+        self.service_node_connection.sendall("GET peer".encode())
 
         # Will get json structure of all service nodes.
         peer_data_json = self.service_node_connection.recv(1024)
